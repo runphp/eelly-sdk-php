@@ -186,6 +186,40 @@ class Goods implements GoodsInterface
     }
 
     /**
+     * 根据订单id 获取订单的商品数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":50001701})
+     * @returnExample({"goods_id":"5578933","gs_id":"32090860","quantity":"1"})
+     *
+     * @author sunanzhi
+     * @since 2018.7.20
+     */
+    public function getOrderGoods(int $orderId): array
+    {
+        return EellyClient::request('order/goods', 'getOrderGoods', true, $orderId);
+    }
+
+    /**
+     * 根据订单id 获取订单的商品数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":50001701})
+     * @returnExample({"goods_id":"5578933","gs_id":"32090860","quantity":"1"})
+     *
+     * @author sunanzhi
+     * @since 2018.7.20
+     */
+    public function getOrderGoodsAsync(int $orderId)
+    {
+        return EellyClient::request('order/goods', 'getOrderGoods', false, $orderId);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

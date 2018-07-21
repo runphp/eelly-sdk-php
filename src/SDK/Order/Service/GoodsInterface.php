@@ -87,4 +87,19 @@ interface GoodsInterface
      * @since  2018年05月10日
      */
     public function countGoodsOrderGoodsLike(int $goodsId): int;
+
+
+    /**
+     * 根据订单id 获取订单的商品数据
+     *
+     * @param int $orderId 订单id
+     * @return array
+     *
+     * @requestExample({"orderId":50001701})
+     * @returnExample({"goods_id":"5578933","gs_id":"32090860","quantity":"1"})
+     *
+     * @author sunanzhi
+     * @since 2018.7.20
+     */
+    public function getOrderGoods(int $orderId): array;
 }
