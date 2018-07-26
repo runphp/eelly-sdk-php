@@ -88,16 +88,17 @@ interface RefundInterface
      *
      * @param int $orderId  订单id
      * @param int $sellerId  卖家id
+     * @param array $addressData 卖家退货地址相关信息
      * @return bool
      *
      * @throws \Eelly\SDK\Order\Exception\OrderException
-     * @requestExample({"orderId":5000214, "sellerId":148086})
+     * @requestExample({"orderId":5000214, "sellerId":148086, "addressData":{"address":"test","consignee":"demo","phone":"13430245645","mobile":"","region_name":"dp"}})
      * @returnExample({true})
      *
      * @author zhangyingdi<zhangyingdi@eelly.net>
      * @since 2018.06.26
      */
-    public function agreeReturnGoods(int $orderId, int $sellerId): bool;
+    public function agreeReturnGoods(int $orderId, int $sellerId, array $addressData = []): bool;
 
     /**
      * 卖家确认收到退货 (部分或全部)
