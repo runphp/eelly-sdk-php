@@ -442,4 +442,20 @@ interface UserInterface
      * @since 2017-11-06
      */
     public function getUser(int $uid): UserDTO;
+
+    /**
+     * 忘记密码
+     *
+     * @param string $mobile 手机号码
+     * @param string $password 新密码
+     * @param string $confirmPassword 确认密码
+     * @return boolean
+     * 
+     * @requestExample({"mobile":"18826237472","password":"testPassword+1","confrimPassword":"testPassword+1"})
+     * @returnExample(true)
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.30
+     */
+    public function forgetPassword(string $mobile, string $password, string $confirmPassword):bool;
 }
