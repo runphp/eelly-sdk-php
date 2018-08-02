@@ -40,7 +40,7 @@ class EellyClient
         'im'             => 'https://api.eelly.com',
         'live'           => 'https://api.eelly.com',
         'log'            => 'https://api.eelly.com',
-        'logger'         => 'http://logger.api.eelly.com',
+        'logger'         => 'https://logger_api.eelly.com',
         'message'        => 'https://api.eelly.com',
         'moments'        => 'https://api.eelly.com',
         'oauth'          => 'https://api.eelly.com',
