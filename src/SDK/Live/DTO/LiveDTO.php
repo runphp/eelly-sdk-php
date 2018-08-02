@@ -121,6 +121,7 @@ class LiveDTO extends AbstractDTO
      * @var int
      */
     public $showFlag;
+    
     /**
      * 添加时间.
      *
