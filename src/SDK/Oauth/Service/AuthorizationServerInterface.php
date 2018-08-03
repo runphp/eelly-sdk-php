@@ -42,7 +42,7 @@ interface AuthorizationServerInterface
      *         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY5NDRhMWRkNDc1MmU0MWE5MDI3ZGJlMDdhZWVjNTdlM2YzYjMzY2UwN2IyMzMyMzc4M2Q3YzRiOWE1NTYxZGY1YTMyMjA3M2Y0ODBmNjk4In0.eyJhdWQiOiJteWF3ZXNvbWVhcHAiLCJqdGkiOiJmOTQ0YTFkZDQ3NTJlNDFhOTAyN2RiZTA3YWVlYzU3ZTNmM2IzM2NlMDdiMjMzMjM3ODNkN2M0YjlhNTU2MWRmNWEzMjIwNzNmNDgwZjY5OCIsImlhdCI6MTUwMzU1OTMzMCwibmJmIjoxNTAzNTU5MzMwLCJleHAiOjE1MDYyMzc3MzAsInN1YiI6IiIsInNjb3BlcyI6W119.sS-MktfOaghz5kRDMHa0YKS4LRIestAXdO7SvtpCp-jItGrOkKCPF6AYhvaoaswc6OZ7_QkP3cF4d_y_zVU0szatR6_OOuKCBu-JYjeSLn08Bo1_a6tXkCk_xMhXhWHM4cQ99s-4WtNqWP2OezikkCNwbArO_t4ZZqPS1BKV408"
      *     }
      * ```
-     * - 密码模式
+     * - 密码模式(QQ模式)
      * ```
      *     {
      *          "token_type": "Bearer",
@@ -62,6 +62,7 @@ interface AuthorizationServerInterface
      * username      |string  |是       |       |用户名
      * password      |string  |是       |       |用户密码
      * refresh_token |string  |是       |       |刷新令牌
+     * access_token  |string  |是       |       |访问token
      *
      * ### 请求示例
      * > 客户端模式(Client credentials grant)
@@ -87,6 +88,15 @@ interface AuthorizationServerInterface
      * refresh_token:def50200ab4b466f8fc63758a5f59942954946bcebce0f7d44bf69aeeec4dac9b516847d59125597f6498df032b54b691457a95f0e56d3e0842d2705291707c5a6423f59f088016dc281b9cca2fad92e7e5f166c7ceaae383e5552fab66c9c7a4fc2b968882aa383d1cc47331e59e1b0f4d0520be4cb0d439a4413c6af83a1f0bb55a89550d75d0d5b6d5d9569d6c43e0fbfc57bcac66f08bc74d3db0069cbfaba2dfd7d930f30fedeb599250cace097a8e84be8bc25af0ee74d5483ac73f302d707c265eafef165bd6367793ef2ed0e644ecde0efe9b6a5a0caad72c38590d73cf240a52f134a14e297930a6f4dfc85ad652dc68e1727a034cce10cca1a0a8ad62b66686455cb0dae1e141de29119f19ab4fdc2ee23daa304d0944b7bc4bfbe7d63edab63586465821856ff0b911cae0838d632f18392c9d412fb22b9ae71f06ade9073b4fd12dd056e5049301ca8d24be2b5bbe18ab7a434e694fa4bdbea9cadb200efc37140a8e52a9843de04059afd
      * client_id:myawesomeapp
      * client_secret:password
+     * ```
+     *
+     * > QQ模式(QQ token grant)
+     *
+     * ```
+     * grant_type:qq
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * access_token:4E338C9700B3CAEE6017C15001BB7ACD
      * ```
      *
      * ### 参考
