@@ -943,6 +943,14 @@ class User implements UserInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function getUserByQQAccessToken(string $accessToken): UserDTO
+    {
+        return EellyClient::request('user/user', __FUNCTION__, true, $accessToken);
+    }
+
+    /**
      * 获取用户信息.
      *
      * ### 返回数据说明
