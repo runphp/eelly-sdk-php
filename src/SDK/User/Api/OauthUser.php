@@ -24,7 +24,7 @@ class OauthUser implements OauthUserInterface
      */
     public function getUserByPassword(string $username, string $password): UserDTO
     {
-        return EellyClient::request('user/user', __FUNCTION__, true, $username, $password);
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $username, $password);
     }
 
     /**
@@ -32,7 +32,7 @@ class OauthUser implements OauthUserInterface
      */
     public function getUserByUid(int $uid): UserDTO
     {
-        return EellyClient::request('user/user', __FUNCTION__, true, $uid);
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $uid);
     }
 
     /**
@@ -40,7 +40,7 @@ class OauthUser implements OauthUserInterface
      */
     public function getUserByQQAccessToken(string $accessToken): UserDTO
     {
-        return EellyClient::request('user/user', __FUNCTION__, true, $code);
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $accessToken);
     }
 
     /**
@@ -48,6 +48,6 @@ class OauthUser implements OauthUserInterface
      */
     public function getUserByWechatCode(string $code): UserDTO
     {
-        return EellyClient::request('user/user', __FUNCTION__, true, $code);
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $code);
     }
 }
