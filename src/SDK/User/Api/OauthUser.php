@@ -50,4 +50,12 @@ class OauthUser implements OauthUserInterface
     {
         return EellyClient::request('user/oauthUser', __FUNCTION__, true, $clientId, $code);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUserByMobileCode(string $mobile, string $code): UserDTO
+    {
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $mobile, $code);
+    }
 }

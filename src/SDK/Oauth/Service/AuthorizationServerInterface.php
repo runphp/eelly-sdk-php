@@ -63,7 +63,7 @@ interface AuthorizationServerInterface
      * password      |string  |是       |       |用户密码
      * refresh_token |string  |是       |       |刷新令牌
      * access_token  |string  |是       |       |访问token(grant_type=qq)
-     * code          |string  |是       |       |临时票据(grant_type=wechat)
+     * code          |string  |是       |       |临时票据(grant_type=wechat或mobile)
      *
      * ### 请求示例
      * > 客户端模式(Client credentials grant)
@@ -107,6 +107,15 @@ interface AuthorizationServerInterface
      * client_id:myawesomeapp
      * client_secret:abc123
      * code:E338C9700B3CAEE6017C15001BB7ACD
+     * ```
+     *
+     * > 手机模式(Mobile token grant)
+     *
+     * ```
+     * grant_type:mobile
+     * client_id:myawesomeapp
+     * client_secret:abc123
+     * code:123456
      * ```
      *
      * ### 参考

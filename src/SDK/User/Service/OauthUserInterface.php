@@ -107,7 +107,7 @@ interface OauthUserInterface
      * mobile   |string |手机号
      *
      * @param string $clientId 衣联客户端id
-     * @param string $code Wechat's code
+     * @param string $code     Wechat's code
      *
      * @return UserDTO
      * @requestExample({"code":"4E338C9700B3CAEE6017C15001BB7ACD"})
@@ -116,4 +116,26 @@ interface OauthUserInterface
      * @author hehui<hehui@eelly.net>
      */
     public function getUserByWechatCode(string $clientId, string $code): UserDTO;
+
+    /**
+     * 通过微信code获取用户信息.
+     *
+     * ### 返回数据说明
+     *
+     * 字段|类型|说明
+     * ---------|-------|--------------
+     * uid      |int    |用户ID
+     * username |string |用户名
+     * mobile   |string |手机号
+     *
+     * @param string $mobile 手机号码
+     * @param string $code   手机验证码
+     *
+     * @return UserDTO
+     * @requestExample({"code":"4E338C9700B3CAEE6017C15001BB7ACD"})
+     * @returnExample({"uid":148086,"username":"molimoq","mobile":"13800138000"})
+     *
+     * @author hehui<hehui@eelly.net>
+     */
+    public function getUserByMobileCode(string $mobile, string $code): UserDTO;
 }
