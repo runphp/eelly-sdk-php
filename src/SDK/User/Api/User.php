@@ -1016,6 +1016,58 @@ class User implements UserInterface
     }
 
     /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function setLoginErrorCount(string $ip): bool
+    {
+        return EellyClient::request('user/user', 'setLoginErrorCount', true, $ip);
+    }
+
+    /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function setLoginErrorCountAsync(string $ip)
+    {
+        return EellyClient::request('user/user', 'setLoginErrorCount', false, $ip);
+    }
+
+    /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function getLoginErrorCount(string $ip): int
+    {
+        return EellyClient::request('user/user', 'getLoginErrorCount', true, $ip);
+    }
+
+    /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function getLoginErrorCountAsync(string $ip)
+    {
+        return EellyClient::request('user/user', 'getLoginErrorCount', false, $ip);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

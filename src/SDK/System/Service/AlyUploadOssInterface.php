@@ -98,9 +98,11 @@ interface AlyUploadOssInterface
      * 
      * @param integer $userId 用户id
      * @param string $url 头像url
+     * @param string $type 类型 qq、wechat
+     * @param string $folder 文件夹 默认avatar：头像
      * @return boolean
      */
-    public function thirdPartUploadImg(int $userId, string $url):bool;
+    public function thirdPartUploadImg(int $userId, string $url, string $type, string $folder = 'avatar'):bool;
 
     /**
      * 服务端签名js直传

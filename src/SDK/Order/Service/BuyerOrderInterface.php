@@ -469,16 +469,17 @@ interface BuyerOrderInterface
      * remark        | int      | 备注说明 这个说明是操作日志的说明
      * created_time  | int      | 此记录的时间戳
      * certificate                | array    | 凭证数据
-     * certificate - order_id     | int      | 订单id
-     * certificate - os_id        | int      | 订单状态
-     * certificate - type         | int      | 订单类型 1:退款 2:退货退款
-     * certificate - phase        | int      | 订单发货状态 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
-     * certificate - apply_amount | int      | 申请的退款金额
-     * certificate - apply_freight| int      | 申请的退款运费
-     * certificate - certificate  | array    | 图片凭证
-     * certificate - remark_type  | int      | 退货退款原因
-     * certificate - remark       | stirng   | 备注说明 这个remark是申请时的说明
-     * certificate - created_time | stirng   | 退货退款发出的时间戳
+     * certificate['order_id']     | int      | 订单id
+     * certificate['os_id']        | int      | 订单状态
+     * certificate['type']         | int      | 订单类型 1:退款 2:退货退款
+     * certificate['refuseReason'] | string   |  卖家拒绝  退货／退款 的拒绝原因
+     * certificate['phase']        | int      | 订单发货状态 1:未发货发起的退款 2:已发货发起的退款 3:已发货发起的退货退款
+     * certificate['apply_amount'] | int      | 申请的退款金额
+     * certificate['apply_freight']| int      | 申请的退款运费
+     * certificate['certificate']  | array    | 图片凭证
+     * certificate['remark_type']  | int      | 退货退款原因
+     * certificate['remark']       | stirng   | 备注说明 这个remark是申请时的说明
+     * certificate['created_time'] | stirng   | 退货退款发出的时间戳
      * address                    | array    | 退货地址
      * address - phone            | string   | 手机号
      * address - mobile           | string   | 手机号
@@ -506,7 +507,7 @@ interface BuyerOrderInterface
      *          "phase":3,
      *          "apply_amount":100,
      *          "apply_freight":"1",
-     *          "certificate":"[]",
+     *          "certificate":"null",
      *          "remark_type":4,
      *          "remark":"-",
      *          "created_time":"1529908563"

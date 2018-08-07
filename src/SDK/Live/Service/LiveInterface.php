@@ -384,6 +384,7 @@ interface LiveInterface
      * 
      */
     public function updateShowFlag(int $liveId, array $flag, int $type): bool;
+    
     /**
      * 获取正在直播的店铺id
      * 

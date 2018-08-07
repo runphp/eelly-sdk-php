@@ -190,11 +190,13 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @param integer $userId 用户id
      * @param string $url 头像url
+     * @param string $type 类型 qq、wechat
+     * @param string $folder 文件夹 默认avatar：头像
      * @return boolean
      */
-    public function thirdPartUploadImg(int $userId, string $url): bool
+    public function thirdPartUploadImg(int $userId, string $url, string $type, string $folder = 'avatar'): bool
     {
-        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', true, $userId, $url);
+        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', true, $userId, $url, $type, $folder);
     }
 
     /**
@@ -202,11 +204,53 @@ class AlyUploadOss implements AlyUploadOssInterface
      * 
      * @param integer $userId 用户id
      * @param string $url 头像url
+     * @param string $type 类型 qq、wechat
+     * @param string $folder 文件夹 默认avatar：头像
      * @return boolean
      */
-    public function thirdPartUploadImgAsync(int $userId, string $url)
+    public function thirdPartUploadImgAsync(int $userId, string $url, string $type, string $folder = 'avatar')
     {
-        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', false, $userId, $url);
+        return EellyClient::request('system/alyUploadOss', 'thirdPartUploadImg', false, $userId, $url, $type, $folder);
+    }
+
+    /**
+     * 服务端签名js直传
+     *
+     * @param string $fileName 文件夹 例：头像类型 ’avatar‘、二维码 ’code' etc
+     * @param int $timeout 有效时间 默认一小时
+     * @return string
+     * 
+     * @requestExample({
+     *      "filename":"avatar"
+     * })
+     * @returnExample({"accessid":"LTAISXGJbA2IXbhv","host":"http://eellytest.oss-cn-shenzhen.aliyuncs.com","policy":"eyJleHBpcmF0aW9uIjoiMjAxOC0wNy0yNlQxMjowODo0OFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MDAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsIiJdXX0=","signature":"qZr0ax8uZv0NIyVoAcSWqp0KUEU=","expire":1532578128,"dir":"avatar/"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.26
+     */
+    public function getPolicy(string $fileName = '', int $timeout = 3600): string
+    {
+        return EellyClient::request('system/alyUploadOss', 'getPolicy', true, $fileName, $timeout);
+    }
+
+    /**
+     * 服务端签名js直传
+     *
+     * @param string $fileName 文件夹 例：头像类型 ’avatar‘、二维码 ’code' etc
+     * @param int $timeout 有效时间 默认一小时
+     * @return string
+     * 
+     * @requestExample({
+     *      "filename":"avatar"
+     * })
+     * @returnExample({"accessid":"LTAISXGJbA2IXbhv","host":"http://eellytest.oss-cn-shenzhen.aliyuncs.com","policy":"eyJleHBpcmF0aW9uIjoiMjAxOC0wNy0yNlQxMjowODo0OFoiLCJjb25kaXRpb25zIjpbWyJjb250ZW50LWxlbmd0aC1yYW5nZSIsMCwxMDQ4NTc2MDAwXSxbInN0YXJ0cy13aXRoIiwiJGtleSIsIiJdXX0=","signature":"qZr0ax8uZv0NIyVoAcSWqp0KUEU=","expire":1532578128,"dir":"avatar/"})
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.26
+     */
+    public function getPolicyAsync(string $fileName = '', int $timeout = 3600)
+    {
+        return EellyClient::request('system/alyUploadOss', 'getPolicy', false, $fileName, $timeout);
     }
 
     /**

@@ -106,6 +106,7 @@ interface OauthUserInterface
      * username |string |用户名
      * mobile   |string |手机号
      *
+     * @param string $clientId 衣联客户端id
      * @param string $code Wechat's code
      *
      * @return UserDTO
@@ -114,5 +115,5 @@ interface OauthUserInterface
      *
      * @author hehui<hehui@eelly.net>
      */
-    public function getUserByWechatCode(string $code): UserDTO;
+    public function getUserByWechatCode(string $clientId, string $code): UserDTO;
 }

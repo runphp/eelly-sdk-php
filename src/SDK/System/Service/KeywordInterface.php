@@ -66,6 +66,26 @@ interface KeywordInterface
     public function addWord(array $data, UidDTO $user = null): bool;
 
     /**
+     * 添加敏感词.
+     *
+     * @param array  $data           敏感词内容
+     * @param string $data['word']   敏感词名称
+     * @param int    $data['type']   敏感词类型／1 商品标题 2 店主咨询 4 商品评论 ……
+     * @param int    $data['mode']   处理方式：（1：警告  2：屏蔽  3：替换）
+     * @param string $data['reword'] 替换词
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @return bool
+     * @requestExample([{"word":"敏感词示例","type":"1","mode":"3","reword":"我是替换词"}])
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     * @since 2018.07.31
+     */
+    public function addWordManage(array $data): bool;
+
+    /**
      * 修改敏感词.
      *
      * @param int 敏感词id
@@ -92,6 +112,31 @@ interface KeywordInterface
     public function updateWord(int $wordId, array $data, UidDTO $user = null): bool;
 
     /**
+     * 修改敏感词.
+     *
+     * @param int 敏感词id
+     * @param array  $data           敏感词内容
+     * @param string $data['word']   敏感词名称
+     * @param int    $data['type']   敏感词类型／1 商品标题 2 店主咨询 4 商品评论 ……
+     * @param int    $data['mode']   处理方式：（1：警告  2：屏蔽  3：替换）
+     * @param string $data['reword'] 替换词
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @return bool
+     * @requestExample([1,{"word": "敏感词示例","type": "1","mode":"3","reword":"我是替换词"}])
+     * @returnExample(true)
+     *
+     * @author zhangyangxun
+     *
+     * @since 2018.07.31
+     * @Validation(
+     *   @OperatorValidator(0,{message:"非法的敏感词id",operator:["gt",0]})
+     * )
+     */
+    public function updateWordManage(int $wordId, array $data): bool;
+
+    /**
      * 删除敏感词.
      *
      * @param int 敏感词id
@@ -111,6 +156,26 @@ interface KeywordInterface
      * )
      */
     public function deleteWord(int $wordId, UidDTO $user = null): bool;
+
+    /**
+     * 删除敏感词.
+     *
+     * @param int 敏感词id
+     *
+     * @throws \Eelly\SDK\System\Exception\SystemException
+     *
+     * @return bool
+     * @requestExample([1])
+     * @returnExample(true)
+     *
+     * @author zhoujiansheng<zhoujiansheng@eelly.net>
+     *
+     * @since 2017-08-26
+     * @Validation(
+     *   @OperatorValidator(0,{message:"非法的敏感词id",operator:["gt",0]})
+     * )
+     */
+    public function deleteWordManage(int $wordId): bool;
 
     /**
      * 分页获取敏感词.
@@ -136,4 +201,49 @@ interface KeywordInterface
      * )
      */
     public function listWordPage(array $condition = [], int $currentPage = 1, int $limit = 10): array;
+
+    /**
+     * 获取敏感词数据下载链接
+     *
+     * @param array  $data 请求参数
+     * @param string $data[0]['db_name'] ecm_filter_word_0(1,2,4,8), 0 全部范围 1 商品名称 2 店主咨询 4 商品评论 8 IM聊天
+     * @return array
+     *
+     * @requestExample([{"db_name": "ecm_filter_word_0"}, {"db_name": "ecm_filter_word_1"}])
+     * @returnExample([{"url": "https://data.eelly.com/download/file/data/016023cc58bba3fa257c99a405ae94db.zip", "db_name": "ecm_filter_word_0"},{"url": "https://data.eelly.com/download/file/data/7d5c4e790c7d63d48382767fd19ee35f.zip", "db_name": "ecm_filter_word_1"}])
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function getSqliteFile(array $data): array;
+
+    /**
+     * 存储敏感聊天记录
+     *
+     * @param array  $data              敏感词记录内容
+     * @param string $data['ip']        发送人IP
+     * @param string $data['deviceNo']  设备号
+     * @param string $data['content']   聊天内容
+     * @param int    $data['time']      聊天时间
+     * @param UidDTO|null $user
+     * @return bool
+     *
+     * @requestExample({"ip": "127.0.0.1", "device_no": "e31nxd2d009a", "content": "敏感词", "time": 1532929978})
+     * @returnExample(true)
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function saveIllegalLog(array $data, UidDTO $user = null): bool;
+
+    /**
+     * 生成敏感词sqlite文件
+     *
+     * @param int $type  敏感词类型：1 商品标题 2 店主咨询 4 商品评论 8 IM聊天
+     * @return bool
+     *
+     * @author 张扬熏<542207975@qq.com>
+     * @since 2018.07.30
+     */
+    public function createSqliteDb(int $type): bool;
 }

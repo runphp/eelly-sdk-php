@@ -115,6 +115,7 @@ class LiveDTO extends AbstractDTO
      */
     public $sort;
 
+
     /**
      * 直播展示标志.
      *

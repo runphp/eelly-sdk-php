@@ -32,4 +32,6 @@ class UserException extends LogicException
     public const NO_REGISTER_PHONE_ERROR = '该手机号没有注册账号，无法收取验证码';
     public const CAPTCHA_OFTEN_ERROR = '申请验证码频繁';
     public const PHONE_DIFFERENT_ERROR = '输入的手机号码与原手机号码不符';
+    public const REQUEST_ERROR = '请求有误';
+    public const CAPTCHA_VERIFY_ERROR = '验证码校验错误';
 }

@@ -78,6 +78,92 @@ class Like implements LikeInterface
     }
 
     /**
+     * 获取拼团商品列表
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * @param int    $page       页数
+     * @param int    $limit      每页条数
+     *
+     * @author wechan
+     *
+     * @since 2018年08月06日
+     */
+    public function getGoodsLikeList(string $conditions = '', array $binds = [], int $page = 1, int $limit = 10): array
+    {
+        return EellyClient::request('goods/like', 'getGoodsLikeList', true, $conditions, $binds, $page, $limit);
+    }
+
+    /**
+     * 获取拼团商品列表
+     * 
+     * @param string $conditions 被绑定的sql
+     * @param array  $binds      绑定值
+     * @param int    $page       页数
+     * @param int    $limit      每页条数
+     *
+     * @author wechan
+     *
+     * @since 2018年08月06日
+     */
+    public function getGoodsLikeListAsync(string $conditions = '', array $binds = [], int $page = 1, int $limit = 10)
+    {
+        return EellyClient::request('goods/like', 'getGoodsLikeList', false, $conditions, $binds, $page, $limit);
+    }
+
+    /**
+     * 获取拼团商品列表
+     * 
+     * @param $data 请求参数
+     *
+     * @author wechan
+     * @since 2018年08月06日
+     */
+    public function setGoodsLikeList(int $goodsId, array $data): bool
+    {
+        return EellyClient::request('goods/like', 'setGoodsLikeList', true, $goodsId, $data);
+    }
+
+    /**
+     * 获取拼团商品列表
+     * 
+     * @param $data 请求参数
+     *
+     * @author wechan
+     * @since 2018年08月06日
+     */
+    public function setGoodsLikeListAsync(int $goodsId, array $data)
+    {
+        return EellyClient::request('goods/like', 'setGoodsLikeList', false, $goodsId, $data);
+    }
+
+    /**
+     * 统计推广商品的数量
+     * 
+     * @param string $conditions sql where条件
+     * 
+     * @author wechan
+     * @since 2018年8月7日
+     */
+    public function countGoodsLike(string $conditions = ''): int
+    {
+        return EellyClient::request('goods/like', 'countGoodsLike', true, $conditions);
+    }
+
+    /**
+     * 统计推广商品的数量
+     * 
+     * @param string $conditions sql where条件
+     * 
+     * @author wechan
+     * @since 2018年8月7日
+     */
+    public function countGoodsLikeAsync(string $conditions = '')
+    {
+        return EellyClient::request('goods/like', 'countGoodsLike', false, $conditions);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self

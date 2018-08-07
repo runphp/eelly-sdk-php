@@ -34,7 +34,7 @@ interface AppletPayRecordInterface
      * handleStatus  | int    | 处理状态 0.未完成 1.已完成
      *
      * @param int $storeId 店铺id
-     * @param int $type 1.今日收入列表 2.累计收入列表 3.累计支出列表
+     * @param int $type 1.今日收入列表 2.累计收入列表 3.累计支出列表 4.累计收入支出列表(全部)
      * @param int $page 分页
      * @return array
      *

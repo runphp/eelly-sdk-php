@@ -56,7 +56,7 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * 获取订单点赞信息(点赞没点赞各1条)
+     * 获取订单点赞信息(最新提交的XX笔订单)
      * 
      * @param int $goodsId 商品id
      * @return array
@@ -78,7 +78,7 @@ class Goods implements GoodsInterface
     }
 
     /**
-     * 获取订单点赞信息(点赞没点赞各1条)
+     * 获取订单点赞信息(最新提交的XX笔订单)
      * 
      * @param int $goodsId 商品id
      * @return array

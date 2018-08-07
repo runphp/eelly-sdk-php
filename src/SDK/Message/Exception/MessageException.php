@@ -49,5 +49,6 @@ class MessageException extends LogicException
     public const SEND_FREQUENCTY = '请勿频繁发送验证码';
 
     public const TEMPLATE_NOT_EXIT = '模版不存在';
+
     public const SEND_CONTENT_FREQUENCTY = '内容发送太频繁，请稍后再试';
 }

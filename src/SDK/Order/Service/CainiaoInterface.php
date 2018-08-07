@@ -300,6 +300,7 @@ interface CainiaoInterface
      * @since 2018年05月25日
      */
     public function sendCloudPrintCmdRender(string $printData, array $extends): array;
+
     /**
      * 测试打印效果.
      *
@@ -316,6 +317,7 @@ interface CainiaoInterface
      * @since 2018年05月25日
      */
     public function createPrintDataExample(): array;
+
     /**
      * 获取订单数据.
      * ### 返回数据说明

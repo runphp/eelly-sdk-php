@@ -103,7 +103,22 @@ interface TokenConvertInterface
      *  @OperatorValidator(1,{message : "手机验证码"})
      * )
      */
-    public function mobileLogin(string $token, string $checkCode, string $password = null);
+    public function mobileLogin(string $token, string $checkCode, string $password = null): array;
+
+
+    /**
+     * 手机登陆注册
+     *
+     * @param string $mobile 手机号码
+     * @param integer $code 验证码
+     * @param integer $templateId 模版id
+     * @param string $password 密码
+     * @return array
+     * 
+     * @author sunanzhi <sunanzhi@hotmail.com>
+     * @since 2018.7.24
+     */
+    public function mobilePhoneLogin(string $mobile, int $code, int $templateId, string $password = null): array;
 
     /**
      * newmall 登录.
@@ -130,4 +145,32 @@ interface TokenConvertInterface
      * @author hehui<hehui@eelly.net>
      */
     public function saveNewMallAccessToken(string $accessToken, array $data, int $lifetime = 2592000): bool;
+
+    /**
+     * 获取微信用户信息
+     *
+     * @param string $accessToken 第三方认证token
+     * @param string $openId      用户唯一标识
+     * @return array
+     *
+     * @requestExample({"accessToken":"12_gQpeRmqEfZIEp", "openId":"KJmxv4kOna9NDb"})
+     * @returnExample({"openid":"oKJmxv4kOna9NDb_Zevi_fEmFO9M","nickname":"Andy","sex":1,"language":"en","city":"\u5e7f\u5dde","province":"\u5e7f\u4e1c","country":"\u4e2d\u56fd","headimgurl":"http:\/\/thirdwx.qlogo.cn\/mmopen\/vi_32\/icIYw4yO5ZwXao4gtRpEwseJlSyjxstVhDhNSxb0MdSpKR2rIPKT03LLQmlY4Uv17ZV1mK6jFRoXbBX3k7jrGPA\/132","privilege":[],"unionid":"oldRYuKuC2iwlCKhsQeks4bxDrXI"})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.25
+     */
+    public function getWechatUserInfo(string $accessToken, string $openId):array;
+
+    /**
+     * 获取QQ用户信息
+     *
+     * @param string $accessToken 第三方认证token
+     * @param int    $type        认证登录类型：1为pc，2为wap，3 为app
+     * @return array
+     *
+     * @requestExample({"accessToken":"12_gQpeRmqEfZIEp", "type":1})
+     * @returnExample({"openid":"A2DF82A0051D7689EE88EDD86FB5AEB2","nickname":"Andy","gender":"\u7537","province":"\u5e7f\u4e1c","city":"\u5e7f\u5dde","headImage":"http:\/\/qzapp.qlogo.cn\/qzapp\/101118568\/A2DF82A0051D7689EE88EDD86FB5AEB2\/30"})
+     * @author zhangyingdi<zhangyingdi@eelly.net>
+     * @since 2018.07.26
+     */
+    public function getQqUserInfo(string $accessToken, int $type):array;
 }

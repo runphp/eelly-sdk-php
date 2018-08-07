@@ -46,8 +46,8 @@ class OauthUser implements OauthUserInterface
     /**
      * {@inheritdoc}
      */
-    public function getUserByWechatCode(string $code): UserDTO
+    public function getUserByWechatCode(string $clientId, string $code): UserDTO
     {
-        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $code);
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $clientId, $code);
     }
 }

@@ -461,4 +461,24 @@ interface UserInterface
      * @since 2018.7.30
      */
     public function forgetPassword(string $mobile, string $password, string $confirmPassword):bool;
+    
+    /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function setLoginErrorCount(string $ip):bool;
+    
+    /**
+     * 根据ip计算用户登录失败的次数
+     *
+     * @param string $ip ip地址
+     *
+     * @author wechan
+     * @since 2018年08月01日
+     */
+    public function getLoginErrorCount(string $ip):int;
 }

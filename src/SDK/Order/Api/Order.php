@@ -694,7 +694,6 @@ class Order implements OrderInterface
      * @returnExample(true)
      * @return bool
      *
-     * @Async
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
@@ -716,7 +715,6 @@ class Order implements OrderInterface
      * @returnExample(true)
      * @return bool
      *
-     * @Async
      *
      * @author 肖俊明<xiaojunming@eelly.net>
      *
