@@ -59,7 +59,7 @@ interface AuthorizationServerInterface
      * grant_type    |string  |否       |       |认证模式
      * client_id     |string  |否       |       |客户端id
      * client_secret |string  |否       |       |客户端秘钥
-     * username      |string  |是       |       |用户名
+     * username      |string  |是       |       |用户名(手机号)
      * password      |string  |是       |       |用户密码
      * refresh_token |string  |是       |       |刷新令牌
      * access_token  |string  |是       |       |访问token(grant_type=qq)
@@ -115,6 +115,7 @@ interface AuthorizationServerInterface
      * grant_type:mobile
      * client_id:myawesomeapp
      * client_secret:abc123
+     * username:13800138000
      * code:123456
      * ```
      *
