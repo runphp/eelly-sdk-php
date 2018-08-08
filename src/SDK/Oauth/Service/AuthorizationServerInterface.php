@@ -42,7 +42,7 @@ interface AuthorizationServerInterface
      *         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY5NDRhMWRkNDc1MmU0MWE5MDI3ZGJlMDdhZWVjNTdlM2YzYjMzY2UwN2IyMzMyMzc4M2Q3YzRiOWE1NTYxZGY1YTMyMjA3M2Y0ODBmNjk4In0.eyJhdWQiOiJteWF3ZXNvbWVhcHAiLCJqdGkiOiJmOTQ0YTFkZDQ3NTJlNDFhOTAyN2RiZTA3YWVlYzU3ZTNmM2IzM2NlMDdiMjMzMjM3ODNkN2M0YjlhNTU2MWRmNWEzMjIwNzNmNDgwZjY5OCIsImlhdCI6MTUwMzU1OTMzMCwibmJmIjoxNTAzNTU5MzMwLCJleHAiOjE1MDYyMzc3MzAsInN1YiI6IiIsInNjb3BlcyI6W119.sS-MktfOaghz5kRDMHa0YKS4LRIestAXdO7SvtpCp-jItGrOkKCPF6AYhvaoaswc6OZ7_QkP3cF4d_y_zVU0szatR6_OOuKCBu-JYjeSLn08Bo1_a6tXkCk_xMhXhWHM4cQ99s-4WtNqWP2OezikkCNwbArO_t4ZZqPS1BKV408"
      *     }
      * ```
-     * - 密码模式 或 QQ模式 或 微信模式
+     * - 密码模式 或 QQ模式 或 微信模式 或 手机模式
      * ```
      *     {
      *          "token_type": "Bearer",
