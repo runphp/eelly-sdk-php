@@ -30,6 +30,6 @@ class Favorite
      */
     public function isCollectByUserId($userId, array $storeIds)
     {
-        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/favorite', __FUNCTION__, true, $userId, $storeId);
+        return \Eelly\SDK\EellyClient::request('eellyOldCode/store/favorite', __FUNCTION__, true, $userId, $storeIds);
     }
 }
