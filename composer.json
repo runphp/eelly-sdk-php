@@ -11,7 +11,7 @@
 	],
 	"require": {
 		"php": "^7.1.3",
-		"shadon/framework": "^v0.2",
+		"shadon/framework": "^v0.2|dev-master",
 		"shadon/oauth2-client": "^v0.1.0"
 	},
 	"autoload": {
