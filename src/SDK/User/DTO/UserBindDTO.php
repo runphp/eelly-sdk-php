@@ -37,7 +37,7 @@ class UserBindDTO extends AbstractDTO
     public $userId;
 
     /**
-     * 绑定类型：1 QQ绑定 2 微信绑定 3 新浪微博 4 腾讯微博 …….
+     * 绑定类型：1 微信绑定 2 QQ绑定
      *
      * @var int
      */

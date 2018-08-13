@@ -28,6 +28,7 @@ class AbstractDTO implements \JsonSerializable
      * 数组转对象
      *
      * @param array $array
+     * @return static
      */
     public static function hydractor(array $array)
     {
