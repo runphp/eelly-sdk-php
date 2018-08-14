@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Eelly\SDK\User\Api;
 
 use Eelly\SDK\EellyClient;
-use Eelly\SDK\User\Service\OauthUserInterface;
 use Eelly\SDK\User\Service\UserInterface;
 use Eelly\DTO\UserDTO;
 use Eelly\DTO\UidDTO;
