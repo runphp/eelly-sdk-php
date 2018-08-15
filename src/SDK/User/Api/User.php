@@ -1028,6 +1028,18 @@ class User implements UserInterface
         return EellyClient::request('user/user', 'setLoginErrorCount', true, $ip);
     }
 
+    // 代码兼容 过渡代码 上线后再去除
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUserByUid(int $uid): UserDTO
+    {
+        return EellyClient::request('user/oauthUser', __FUNCTION__, true, $uid);
+    }
+
+    // 代码兼容 过渡代码 上线后再去除
+
     /**
      * 根据ip计算用户登录失败的次数
      *

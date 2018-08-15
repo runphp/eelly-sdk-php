@@ -79,4 +79,17 @@ interface LikeInterface
      * @since 2018年8月7日
      */
     public function countGoodsLike(string $conditions = ""): int;
+    
+    /**
+     * 修改拼团商品活动库存
+     * 
+     * @param array $goodsId 商品id
+     * @param int $num 数量
+     * @param string $action 操作类型 -:减 +:加
+     * 
+     * 
+     * @author wechan
+     * @since 2018年08月14日
+     */
+    public function changeStock(int $goodsId, int $num, string $action = '-'): bool;
 }

@@ -33,6 +33,13 @@ class UserDTO extends UidDTO
     public $mobile;
 
     /**
+     * 用户头像.
+     *
+     * @var string
+     */
+    public $avatar;
+
+    /**
      * @return string
      */
     public function getUsername(): string
