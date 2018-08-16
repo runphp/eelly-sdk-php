@@ -57,4 +57,15 @@ class Goods
     {
         return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $userId, $goodsIds);
     }
+
+    /**
+     * @param $searchParams
+     * @param string $type
+     * 
+     * @return mixed
+     */
+    public function buyerSearchGoods($searchParams, $type = 'app')
+    {
+        return EellyClient::request('eellyOldCode/goods/goods', __FUNCTION__, true, $searchParams, $type);
+    }
 }
