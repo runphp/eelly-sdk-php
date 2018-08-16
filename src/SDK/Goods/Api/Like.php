@@ -164,6 +164,38 @@ class Like implements LikeInterface
     }
 
     /**
+     * 修改拼团商品活动库存
+     * 
+     * @param array $goodsId 商品id
+     * @param int $num 数量
+     * @param string $action 操作类型 -:减 +:加
+     * 
+     * 
+     * @author wechan
+     * @since 2018年08月14日
+     */
+    public function changeStock(int $goodsId, int $num, string $action = '-'): bool
+    {
+        return EellyClient::request('goods/like', 'changeStock', true, $goodsId, $num, $action);
+    }
+
+    /**
+     * 修改拼团商品活动库存
+     * 
+     * @param array $goodsId 商品id
+     * @param int $num 数量
+     * @param string $action 操作类型 -:减 +:加
+     * 
+     * 
+     * @author wechan
+     * @since 2018年08月14日
+     */
+    public function changeStockAsync(int $goodsId, int $num, string $action = '-')
+    {
+        return EellyClient::request('goods/like', 'changeStock', false, $goodsId, $num, $action);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
