@@ -69,17 +69,17 @@ class Live implements LiveInterface
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10): array
+    public function listLivePage(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base'): array
     {
-        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', true, $condition, $currentPage, $limit, $order);
     }
 
     /**
      * @author eellytools<localhost.shell@gmail.com>
      */
-    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10)
+    public function listLivePageAsync(array $condition = [], int $currentPage = 1, int $limit = 10, string $order = 'base')
     {
-        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit);
+        return EellyClient::request('live/live', 'listLivePage', false, $condition, $currentPage, $limit, $order);
     }
 
     /**
@@ -906,6 +906,76 @@ class Live implements LiveInterface
     public function cancelLiveAsync(int $liveId)
     {
         return EellyClient::request('live/live', 'cancelLive', false, $liveId);
+    }
+
+    /**
+     * 随机取直播数据
+     *
+     * @param array $condition 查询条件，可选
+     * @param int   $num       查询数量，默认1
+     * @return array
+     *
+     * @requestExample({ "condition":{"storeIds":[148086,148087], "inStatus":[1, 12, 13], "lastSchedule":"1516353883"}, "num": 1 })
+     * @returnExample({ {"liveId":1, "title":"11", "image":"1111", "view":168} })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-10
+     */
+    public function getRandomLive(array $condition = [], int $num = 1): array
+    {
+        return EellyClient::request('live/live', 'getRandomLive', true, $condition, $num);
+    }
+
+    /**
+     * 随机取直播数据
+     *
+     * @param array $condition 查询条件，可选
+     * @param int   $num       查询数量，默认1
+     * @return array
+     *
+     * @requestExample({ "condition":{"storeIds":[148086,148087], "inStatus":[1, 12, 13], "lastSchedule":"1516353883"}, "num": 1 })
+     * @returnExample({ {"liveId":1, "title":"11", "image":"1111", "view":168} })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-10
+     */
+    public function getRandomLiveAsync(array $condition = [], int $num = 1)
+    {
+        return EellyClient::request('live/live', 'getRandomLive', false, $condition, $num);
+    }
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStat(int $day): array
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', true, $day);
+    }
+
+    /**
+     * 获取指定天数后过期的直播数据
+     *
+     * @param int $day
+     * @return array
+     *
+     * @requestExample({"day": 7})
+     * @returnExample([{ "storeId": 1760467, 'liveCount': 8, "validDate": 1514735999}])
+     *
+     * @author zhangyangxun
+     * @since 2018-08-14
+     */
+    public function getExpiredStatAsync(int $day)
+    {
+        return EellyClient::request('live/live', 'getExpiredStat', false, $day);
     }
 
     /**

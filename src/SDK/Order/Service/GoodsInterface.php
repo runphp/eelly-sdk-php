@@ -88,6 +88,28 @@ interface GoodsInterface
      */
     public function countGoodsOrderGoodsLike(int $goodsId): int;
 
+    /**
+     * 根据多个商品获取订单点赞数
+     *
+     * @param array $goodsIds
+     * @return array
+     *
+     * @requestExample({"goodsIds":[5578933, 1450164457]})
+     * @returnExample({
+     *      "5578933":{
+     *          "likeCount":6,
+     *          "goodsId":5578933
+     *     },
+     *     "1450164457":{
+     *          "likeCount":21,
+     *          "goodsId":1450164457
+     *     }
+     * })
+     *
+     * @author zhangyangxun
+     * @since 2018.08.10
+     */
+    public function countOrderGoodsLike(array $goodsIds): array;
 
     /**
      * 根据订单id 获取订单的商品数据

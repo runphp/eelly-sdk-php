@@ -240,10 +240,13 @@ interface KeywordInterface
      * 生成敏感词sqlite文件
      *
      * @param int $type  敏感词类型：1 商品标题 2 店主咨询 4 商品评论 8 IM聊天
-     * @return bool
+     * @return array  压缩包链接
+     *
+     * @requestExample({"type": 1})
+     * @returnExample({"url": "https://data.eelly.com/download/file/data/54bed14356bc0fdba5d86d1be25f30ab.zip"})
      *
      * @author 张扬熏<542207975@qq.com>
      * @since 2018.07.30
      */
-    public function createSqliteDb(int $type): bool;
+    public function createSqliteDb(int $type): array;
 }

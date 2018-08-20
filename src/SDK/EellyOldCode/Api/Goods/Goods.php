@@ -61,7 +61,7 @@ class Goods
     /**
      * @param $searchParams
      * @param string $type
-     * 
+     *
      * @return mixed
      */
     public function buyerSearchGoods($searchParams, $type = 'app')

@@ -1381,6 +1381,46 @@ class Order implements OrderInterface
     }
 
     /**
+     * 获取各卖家未发货订单数量
+     *
+     * @param int $page  当前页数
+     * @param int $limit 每页数量
+     * @return array
+     *
+     * @requestExample({"page": 1, "limit": 1000})
+     * @returnExample({
+     *     "148086": {"orderCount": 8, "sellerId": 148086}
+     * })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-08
+     */
+    public function getUnshippedInfo(int $page = 1, int $limit = 10): array
+    {
+        return EellyClient::request('order/order', 'getUnshippedInfo', true, $page, $limit);
+    }
+
+    /**
+     * 获取各卖家未发货订单数量
+     *
+     * @param int $page  当前页数
+     * @param int $limit 每页数量
+     * @return array
+     *
+     * @requestExample({"page": 1, "limit": 1000})
+     * @returnExample({
+     *     "148086": {"orderCount": 8, "sellerId": 148086}
+     * })
+     *
+     * @author zhangyangxun
+     * @since 2018-08-08
+     */
+    public function getUnshippedInfoAsync(int $page = 1, int $limit = 10)
+    {
+        return EellyClient::request('order/order', 'getUnshippedInfo', false, $page, $limit);
+    }
+
+    /**
      * @return self
      */
     public static function getInstance(): self
